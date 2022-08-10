@@ -1,5 +1,6 @@
 package example.org.controllers;
 
+import example.org.dao.PersonDao;
 import example.org.models.Person;
 import example.org.services.ItemService;
 import example.org.services.PeopleService;
@@ -18,22 +19,24 @@ public class PeopleController {
     private final PeopleService peopleService;
     private final ItemService itemService;
 
+    private final PersonDao personDao;
 
 
     @Autowired
-    public PeopleController(PeopleService peopleService, ItemService itemService) {
+    public PeopleController(PeopleService peopleService, ItemService itemService, PersonDao personDao) {
         this.peopleService = peopleService;
         this.itemService = itemService;
+        this.personDao = personDao;
     }
 
     @GetMapping()
     public String index(Model model) {
-        model.addAttribute("people", peopleService.findAll());
+        //   model.addAttribute("people", peopleService.findAll());
 
-        itemService.findByItemName("Airpods");
-        itemService.findByOwner(peopleService.findAll().get(0));
-
-        peopleService.test();
+        // itemService.findByItemName("Airpods");
+        //   itemService.findByOwner(peopleService.findAll().get(0));
+        personDao.testNPlus();
+        //  peopleService.test();
 
         return "people/index";
     }

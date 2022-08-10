@@ -9,19 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6c9298cb-9d78-4c47-8649-8df946a0986c" name="Changes" comment="completed refactoring">
-      <change afterPath="$PROJECT_DIR$/src/main/java/example/org/models/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/example/org/repositories/ItemsRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/example/org/repositories/PeopleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/example/org/services/ItemService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/example/org/services/PeopleService.java" afterDir="false" />
+    <list default="true" id="6c9298cb-9d78-4c47-8649-8df946a0986c" name="Changes" comment="add item table">
+      <change afterPath="$PROJECT_DIR$/src/main/java/example/org/dao/PersonDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/example/org/models/Mood.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/example/org/config/MySpringMvcDispatcherServletInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/org/config/MySpringMvcDispatcherServletInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/example/org/config/SpringConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/org/config/SpringConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/example/org/controllers/PeopleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/org/controllers/PeopleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/example/org/dao/PersonDAO.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/example/org/models/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/org/models/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/example/org/services/PeopleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/org/services/PeopleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/new.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +29,7 @@
       <list>
         <option value="HTML File" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -66,22 +63,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/GoodK/IdeaProjects/lesson21&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;ea6d9387332db281ee11bac7f387a04b&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/GoodK/IdeaProjects/lesson21",
+    "project.structure.last.edited": "Problems",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "spring.configuration.checksum": "ea6d9387332db281ee11bac7f387a04b"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\GoodK\IdeaProjects\SpringHibernateTemplate\src\main\webapp\WEB-INF\views" />
@@ -191,8 +191,17 @@
       <workItem from="1660067294294" duration="653000" />
       <workItem from="1660110051413" duration="3113000" />
       <workItem from="1660121370890" duration="2346000" />
-      <workItem from="1660124959024" duration="2453000" />
+      <workItem from="1660124959024" duration="4231000" />
+      <workItem from="1660138353751" duration="3260000" />
     </task>
+    <task id="LOCAL-00001" summary="add item table">
+      <created>1660127469881</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1660127469882</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,7 +220,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="completed refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="completed refactoring" />
+    <MESSAGE value="add item table" />
+    <option name="LAST_COMMIT_MESSAGE" value="add item table" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -228,7 +238,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/example/org/services/PeopleService.java</url>
-          <line>49</line>
+          <line>53</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
